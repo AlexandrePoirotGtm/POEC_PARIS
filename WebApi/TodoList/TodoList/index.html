@@ -19,6 +19,11 @@
 
             .Tache button {
                 float: right;
+                display: none;
+            }
+
+            .Tache:hover button {
+                display: block;
             }
     </style>
 </head>
@@ -36,7 +41,10 @@
             $.ajax({
                 url: '/api/taches',
                 success: function (taches) {
+                    console.log(taches);
                     var divListeTaches = $('#listeTaches');
+                    divListeTaches.empty();
+
                     for (tache of taches) {
                         var divTache = $('<div class="Tache alert"></div>');
                         divTache.attr("data-id", tache.ID);
@@ -56,7 +64,7 @@
                         buttonDelete.on('click', function () {
                             var div = $(this).closest(".Tache");
                             var idTache = div.attr("data-id");
-                            Supprimer(idTache, div);
+                            SupprimerTache(idTache, div);
                         });
 
                         divTache.append(inputEtat);
@@ -81,6 +89,17 @@
                     } else {
                         divTache.removeClass('alert-success');
                     }
+                },
+                error: Erreur
+            });
+        }
+
+        function SupprimerTache(id, div) {
+            $.ajax({
+                type: 'DELETE',
+                url: '/api/taches/' + id,
+                success: function () {
+                    $(div).remove();
                 },
                 error: Erreur
             });
