@@ -87,9 +87,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Application\css\application.css" />
+    <Content Include="Application\css\bootstrap-alert.min.css" />
     <Content Include="Application\html\Categories.html" />
     <Content Include="Application\html\Tache.html" />
     <Content Include="Application\html\Taches.html" />
+    <Content Include="Application\js\bootstrap-alert.min.js" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
     <Content Include="Web.config" />
@@ -125,7 +127,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\js\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
