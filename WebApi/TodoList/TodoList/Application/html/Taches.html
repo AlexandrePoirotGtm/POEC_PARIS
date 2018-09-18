@@ -75,13 +75,16 @@
             integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
             crossorigin="anonymous"></script>
     <script src="/Application/js/bootstrap-alert.min.js"></script>
+    <script src="/Application/js/application.js"></script>
     <script>
 
         function getTaches() {
+            var divListeTaches = $('#listeTaches');
+            setLoader(divListeTaches);
+
             $.ajax({
                 url: '/api/taches',
                 success: function (taches) {
-                    var divListeTaches = $('#listeTaches');
                     divListeTaches.empty();
 
                     for (tache of taches) {

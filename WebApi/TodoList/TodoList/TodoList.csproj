@@ -91,6 +91,7 @@
     <Content Include="Application\html\Categories.html" />
     <Content Include="Application\html\Tache.html" />
     <Content Include="Application\html\Taches.html" />
+    <Content Include="Application\js\application.js" />
     <Content Include="Application\js\bootstrap-alert.min.js" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
