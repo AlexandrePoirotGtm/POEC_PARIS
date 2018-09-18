@@ -27,10 +27,13 @@
     <div class="container-fluid">
         <h3>Nouvelle tache</h3>
 
-        <form>
+        <form novalidate>
             <div class="form-group">
                 <label for="Nom">Nom</label>
                 <input type="text" class="form-control" id="Nom" required />
+                <div class="invalid-feedback">
+                    Champ requis
+                </div>
             </div>
 
             <div class="form-group">
@@ -41,6 +44,9 @@
             <div class="form-group">
                 <label for="Categorie">Catégorie</label>
                 <select class="form-control" id="Categorie" required></select>
+                <div class="invalid-feedback">
+                    Champ requis
+                </div>
             </div>
 
         </form>
@@ -51,8 +57,21 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script>
+
+        function Valider() {
+            var form = $('form');
+            let estValide = form[0].checkValidity();
+            form.addClass("was-validated");
+
+            return estValide;
+        }
+
         function Enregistrer() {
-            var tache = {
+            if (!Valider()) {
+                return false;
+            }
+
+            let tache = {
                 Nom: $('#Nom').val(),
                 Description: $('#Description').val(),
                 CategorieID: $('#Categorie').val()
