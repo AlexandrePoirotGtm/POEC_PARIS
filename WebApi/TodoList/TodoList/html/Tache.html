@@ -8,10 +8,36 @@
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
           crossorigin="anonymous" />
+    <style>
+        .container-fluid {
+            margin-top: 25px;
+        }
+
+        .actions {
+            margin-top: 25px;
+        }
+
+            .actions button, .actions a {
+                margin-right: 15px;
+            }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Nouvelle tache</h1>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">TodoApp</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Taches <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/html/categories.html">Catégories</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <h3>Nouvelle tache</h3>
 
         <form>
             <div class="form-group">
@@ -29,8 +55,11 @@
                 <select class="form-control" id="Categorie" required></select>
             </div>
 
-            <button class="btn btn-primary" onclick="return Enregistrer();">Enregistrer</button>
         </form>
+        <div class="actions">
+            <button class="btn btn-primary" onclick="return Enregistrer();">Enregistrer</button>
+            <a href="/" class="btn btn-light">Annuler</a>
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
     <script>
@@ -74,7 +103,11 @@
             });
         }
 
-        LoadCategories();
+        $(document).ready(function () {
+            LoadCategories();
+            
+            ; // Sans jquery: document.getElementById('Nom').focus();
+        });
 
     </script>
 </body>
