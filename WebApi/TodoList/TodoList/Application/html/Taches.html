@@ -102,6 +102,7 @@
 
                         var buttonDelete = $('<button class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>');
                         buttonDelete.on('click', function () {
+                            // Affichage d'une confirmation
                             $.bsAlert.confirmTitle = 'Suppression';
                             $.bsAlert.closeDisplay = 'Non';
                             $.bsAlert.sureDisplay = 'Oui';
