@@ -56,12 +56,15 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="/Application/js/application.js"></script>
     <script>
         function LoadCategories() {
+            var divListeCategories = $('#listeCategories');
+            setLoader(divListeCategories);
+
             $.ajax({
                 url: '/api/categories',
                 success: function (categories) {
-                    var divListeCategories = $('#listeCategories');
                     divListeCategories.empty();
 
                     for (var categorie of categories) {
